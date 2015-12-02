@@ -26,6 +26,27 @@
         <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
         <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
     <![endif]-->
+    
+    <script type="text/javascript">
+        $('#myCarousel').carousel({
+          interval: 10000
+        })
+
+        $('.carousel .item').each(function(){
+          var next = $(this).next();
+          if (!next.length) {
+            next = $(this).siblings(':first');
+          }
+          next.children(':first-child').clone().appendTo($(this));
+
+          if (next.next().length>0) {
+            next.next().children(':first-child').clone().appendTo($(this));
+          }
+          else {
+            $(this).siblings(':first').children(':first-child').clone().appendTo($(this));
+          }
+        });
+    </script>
 
 </head>
 
@@ -113,6 +134,45 @@
     					<h2>Recent Closings</h2>
     				</div>
                     
+                    
+                    <div class="col-md-12">
+                        <div class="carousel slide" id="myCarousel">
+                            
+                            <div class="carousel-inner">
+                                <div class="item active">
+                                    <div class="col-md-4">gsergtghrstgh</div>
+                                </div>
+                                <div class="item">
+                                    <div class="col-md-4">gsergtghrstgh</div>
+                                </div>
+                                <div class="item">
+                                    <div class="col-md-4">gsergtghrstgh</div>
+                                </div>
+                                <div class="item">
+                                    <div class="col-md-4">gsergtghrstgh</div>
+                                </div>
+                                <div class="item">
+                                    <div class="col-md-4">gsergtghrstgh</div>
+                                </div>
+                                <div class="item">
+                                    <div class="col-md-4">gsergtghrstgh</div>
+                                </div>
+                                <div class="item">
+                                    <div class="col-md-4">gsergtghrstgh</div>
+                                </div>
+                            </div>
+                            
+                            <a class="left carousel-control" href="#myCarousel" data-slide="prev"><i class="glyphicon glyphicon-chevron-left"></i></a>
+                            <a class="right carousel-control" href="#myCarousel" data-slide="next"><i class="glyphicon glyphicon-chevron-right"></i></a>
+                        </div>
+                       
+                    </div>
+
+
+                    
+                    
+                    
+                    
                     <div class="col-md-3 col-sm-6 col-xs-12">
                         <div class="recent-wrapper">
                             <a href="">
@@ -157,6 +217,9 @@
                         </div>
                     </div>
                     
+                    <div class="col-md-12 text-right">
+    					<a href="" class="btn btn-default">View All Closings &#187;</a>
+    				</div>
            
                     
                 </div>
